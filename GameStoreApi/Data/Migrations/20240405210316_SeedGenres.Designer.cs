@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStoreApi.Data.Migrations
 {
     [DbContext(typeof(GameStoreContext))]
-    [Migration("20240405185325_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240405210316_SeedGenres")]
+    partial class SeedGenres
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,12 @@ namespace GameStoreApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly>("ReleaseDate")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("GenreId");
@@ -50,15 +56,51 @@ namespace GameStoreApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateOnly>("ReleaseDate")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Casual"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Fighting"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Music"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Racing"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "RPG"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Shooter"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Sports"
+                        });
                 });
 
             modelBuilder.Entity("GameStoreApi.Entities.Game", b =>
