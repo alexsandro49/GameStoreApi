@@ -1,7 +1,6 @@
 using GameStoreApi.Entities;
 using GameStoreApi.Dtos;
 
-
 namespace GameStoreApi.Mapping;
 
 public static class GameMapping
